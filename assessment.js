@@ -7,7 +7,7 @@ After writing your function uncomment the matching function reference at the bot
 // 1. Write a function called helloWorld that returns the string 'Hello World!'.
 
 function helloWorld() {
-
+  return "Hello World!";
 }
 
 /*
@@ -23,8 +23,19 @@ function helloWorld() {
              lambdaSchool(8); // returns 8
 */
 
-function lambdaSchool() {
-
+function lambdaSchool(num) {
+  if (num % 3 == 0 && num % 5 == 0) {
+    return "Lambda School";
+  }
+  else if (num % 3 == 0) {
+    return "Lambda";
+  }
+  else if (num % 5 == 0) {
+    return "School";
+  }
+  else {
+    return num;
+  }
 }
 
 /*
@@ -38,8 +49,16 @@ function lambdaSchool() {
              longestString(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
 */
 
-function longestString() {
-
+function longestString(strs) {
+  longestString = strs[0];
+  for (i = 1; i < strs.length; i++)
+    if ( longestString.length >= strs[i].length) {
+      return longestString;
+    }
+    else {
+      longestString = strs[i];
+    }
+  return longestString;
 }
 
 /*
@@ -63,8 +82,12 @@ function longestString() {
              computeUserAverageAge(users); // returns 62 (This number is rounded up from 61.6666)
 */
 
-function computeUserAverageAge() {
-
+function computeUserAverageAge(users) {
+  totalAge = 0;
+  for (i = 0; i < users.length; i++){
+    totalAge += users[i].age;
+  }
+  return Math.ceil(totalAge / users.length);
 }
 
 module.exports = {
